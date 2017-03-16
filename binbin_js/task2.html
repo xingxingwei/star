@@ -4,7 +4,7 @@
   <mate charset="utf-8">
   <title>js task2</title>
  </head>
- <body>
+ <body onload="listcity()">
     <h3>污染城市列表</h3>
     <ul id="wx-list">
     <!--   
@@ -17,9 +17,11 @@
       ["上海",50],
       ["福州",10],
       ["广州",40],
-      ["成都",70]
+      ["成都",70],
+      ["石家庄",100],
+     
     ]
-    (function(){
+    function listcity(){
         /*
   在注释下方编写代码
   遍历读取aqiData中各个城市的数据
@@ -36,10 +38,16 @@
             }
          }
       }
+     var list_text="";
+     var count=0;
        for(var i=0;i<wxData.length;i++){
-        list.innerHTML=wxData[i][1]+" ,"
+        if(wxData[i][1]>60){
+         list_text+="<li>第"+ (i+1)+"名："+wxData[i][0]+"&nbsp&nbsp"+wxData[i][1]+"</li>";
+         count++;
+        }
        }
-    })();
+     list.innerHTML=list_text;
+    }
   </script>
  </body>
 </html>
