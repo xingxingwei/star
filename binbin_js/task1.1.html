@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>js task 1.1</title>
+  </head>
+  <body>
+    <label>input someting:<input id="aqi-input" type="text"></label>
+    <button id="button">ok</button>
+    
+    <div>what you input is that:<span id="aqi-display"></span></div>
+  <script type="text/javascript">
+    (function(){
+      var input=document.getElementById("aqi-input");
+      var butt=document.getElementById("button");
+      var display=document.getElementById("aqi-display");
+      butt.onclick=function(){
+        display.innerHTML=input.value;
+      }
+    })()
+  </script>
+  </body>
+</html>
