@@ -1,0 +1,45 @@
+<DOCTYPE html>
+<html>
+ <head>
+  <mate charset="utf-8">
+  <title>js task2</title>
+ </head>
+ <body>
+    <h3>污染城市列表</h3>
+    <ul id="wx-list">
+    <!--   
+    <li>第一名：福州（样例），10</li>
+    <li>第二名：福州（样例），10</li> -->
+    <ul/>
+  <script type="text/javascript">
+    var wxData=[
+      ["北京",90],
+      ["上海",50],
+      ["福州",10],
+      ["广州",40],
+      ["成都",70]
+    ]
+    (function(){
+        /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+      var list=document.getElementById("wx-list");
+      for(var i=0;i<wxData.length-1;i++){
+         for(var j=0;j<wxData.length-1-i;j++){
+            var temp;
+            if(wxData[j][1]<wxData[j+1][1]){
+              temp=wxData[j];
+              wxData[j]=wxData[j+1];
+              wxData[j+1]=temp;
+            }
+         }
+      }
+       for(var i=0;i<wxData.length;i++){
+        list.innerHTML+=wxData[j][1]+" ,"
+       }
+    })();
+  </script>
+ </body>
+</html>
