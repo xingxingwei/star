@@ -21,6 +21,9 @@
       ["石家庄",100],
      
     ]
+    function ascend(a,b){
+     return b[1]-a[1];
+    }
     function listcity(){
         /*
   在注释下方编写代码
@@ -28,7 +31,7 @@
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
       var list=document.getElementById("wx-list");
-      for(var i=0;i<wxData.length-1;i++){
+    /**  for(var i=0;i<wxData.length-1;i++){
          for(var j=0;j<wxData.length-1-i;j++){
             var temp;
             if(wxData[j][1]<wxData[j+1][1]){
@@ -37,12 +40,14 @@
               wxData[j+1]=temp;
             }
          }
-      }
+      }**/
+     var data=wxData.sort(ascend);
+     
      var list_text="";
      var count=0;
-       for(var i=0;i<wxData.length;i++){
-        if(wxData[i][1]>60){
-         list_text+="<li>第"+ (i+1)+"名："+wxData[i][0]+"&nbsp&nbsp"+wxData[i][1]+"</li>";
+       for(var i=0;i<data.length;i++){
+        if(data[i][1]>60){
+         list_text+="<li>第"+ (i+1)+"名："+data[i][0]+"&nbsp&nbsp"+data[i][1]+"</li>";
          count++;
         }
        }
